@@ -1,0 +1,7 @@
+gilded space vault
+
+      - name: Run linter
+        run: deno lint
+
+      - name: Run tests
+        run: deno test -A
