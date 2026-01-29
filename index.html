@@ -1,119 +1,149 @@
-import React from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO-TOKYO 2087 | Cyberpunk Mood Board</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes pulse-slow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .animate-pulse-custom {
+            animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .bg-clip-text {
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-900 text-white p-6 font-sans">
 
-const CyberpunkMoodBoard = () => {
-  const districts = [
-    { name: "Corporate Spire District", color: "from-cyan-500 to-blue-600", icon: "🏢", desc: "Gleaming towers, holo-ads, executive sky bridges" },
-    { name: "Neon Market Zone", color: "from-pink-500 to-purple-600", icon: "🛒", desc: "Street vendors, black market tech, dense crowds" },
-    { name: "Industrial Sector", color: "from-orange-500 to-red-600", icon: "⚙️", desc: "Factories, smoke stacks, worker housing blocks" },
-    { name: "Undercity Slums", color: "from-green-500 to-emerald-700", icon: "🌿", desc: "Forgotten levels, bio-hackers, rebel hideouts" },
-  ];
-
-  const elements = [
-    "Holographic billboards", "Flying vehicles", "Neon kanji signs", 
-    "Cybernetic citizens", "Rain-slicked streets", "Megacorp logos",
-    "Sky trains", "Drone swarms", "Street food stalls", "Hacker dens"
-  ];
-
-  return (
-    <div className="min-h-screen bg-gray-900 text-white p-6">
-      {/* Header */}
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">
-          NEO-TOKYO 2087
+    <div class="text-center mb-8">
+        <h1 class="text-5xl font-bold bg-gradient-to-r from-cyan-400 via-pink-500 to-purple-500 bg-clip-text text-transparent mb-2">
+            NEO-TOKYO 2087
         </h1>
-        <p className="text-gray-400 text-lg">Cyberpunk Megacity Concept</p>
-      </div>
-
-      {/* City Silhouette */}
-      <div className="relative bg-gradient-to-b from-purple-900 via-gray-900 to-black rounded-xl p-8 mb-8 overflow-hidden">
-        {/* Neon glow effects */}
-        <div className="absolute top-0 left-1/4 w-32 h-32 bg-cyan-500 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute top-10 right-1/4 w-24 h-24 bg-pink-500 rounded-full blur-3xl opacity-30"></div>
-        <div className="absolute bottom-0 left-1/2 w-40 h-20 bg-purple-500 rounded-full blur-3xl opacity-20"></div>
-        
-        {/* Buildings */}
-        <div className="flex items-end justify-center gap-1 h-64 relative z-10">
-          <div className="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-24 rounded-t"></div>
-          <div className="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-32 rounded-t"></div>
-          <div className="w-10 bg-gradient-to-t from-cyan-900 to-cyan-700 h-44 rounded-t border-t-2 border-cyan-400"></div>
-          <div className="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-36 rounded-t"></div>
-          <div className="w-12 bg-gradient-to-t from-pink-900 to-pink-700 h-56 rounded-t border-t-2 border-pink-400">
-            <div className="mt-2 mx-auto w-2 h-2 bg-pink-400 animate-pulse"></div>
-          </div>
-          <div className="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-28 rounded-t"></div>
-          <div className="w-14 bg-gradient-to-t from-purple-900 to-purple-700 h-48 rounded-t border-t-2 border-purple-400"></div>
-          <div className="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-40 rounded-t"></div>
-          <div className="w-10 bg-gradient-to-t from-cyan-900 to-cyan-700 h-52 rounded-t border-t-2 border-cyan-400">
-            <div className="mt-4 mx-auto w-1 h-8 bg-cyan-400 opacity-50"></div>
-          </div>
-          <div className="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-20 rounded-t"></div>
-          <div className="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-36 rounded-t"></div>
-        </div>
-        
-        {/* Moon */}
-        <div className="absolute top-4 right-8 w-12 h-12 bg-gray-300 rounded-full opacity-60"></div>
-        
-        {/* City name overlay */}
-        <div className="absolute bottom-4 left-4 text-xs text-cyan-400 font-mono opacity-70">
-          SECTOR 7-G // POPULATION: 47.2M
-        </div>
-      </div>
-
-      {/* Districts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
-        {districts.map((district, i) => (
-          <div key={i} className={`bg-gradient-to-r ${district.color} p-0.5 rounded-lg`}>
-            <div className="bg-gray-900 rounded-lg p-4 h-full">
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-2xl">{district.icon}</span>
-                <h3 className="font-bold text-lg">{district.name}</h3>
-              </div>
-              <p className="text-gray-400 text-sm">{district.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Visual Elements */}
-      <div className="bg-gray-800 rounded-xl p-6 mb-8">
-        <h2 className="text-xl font-bold mb-4 text-pink-400">🎨 Visual Elements</h2>
-        <div className="flex flex-wrap gap-2">
-          {elements.map((element, i) => (
-            <span key={i} className="px-3 py-1 bg-gray-700 rounded-full text-sm text-cyan-300 border border-cyan-500/30">
-              {element}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* Color Palette */}
-      <div className="bg-gray-800 rounded-xl p-6">
-        <h2 className="text-xl font-bold mb-4 text-purple-400">🎭 Color Palette</h2>
-        <div className="flex gap-2 flex-wrap">
-          <div className="w-16 h-16 bg-cyan-400 rounded-lg flex items-end p-1">
-            <span className="text-xs text-gray-900 font-mono">#22d3ee</span>
-          </div>
-          <div className="w-16 h-16 bg-pink-500 rounded-lg flex items-end p-1">
-            <span className="text-xs text-white font-mono">#ec4899</span>
-          </div>
-          <div className="w-16 h-16 bg-purple-600 rounded-lg flex items-end p-1">
-            <span className="text-xs text-white font-mono">#9333ea</span>
-          </div>
-          <div className="w-16 h-16 bg-orange-500 rounded-lg flex items-end p-1">
-            <span className="text-xs text-white font-mono">#f97316</span>
-          </div>
-          <div className="w-16 h-16 bg-gray-900 rounded-lg flex items-end p-1 border border-gray-700">
-            <span className="text-xs text-gray-400 font-mono">#111827</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Footer */}
-      <div className="text-center mt-8 text-gray-500 text-sm">
-        Use these prompts with Midjourney, DALL·E, or Stable Diffusion
-      </div>
+        <p class="text-gray-400 text-lg uppercase tracking-widest">Cyberpunk Megacity Concept</p>
     </div>
-  );
-};
 
-export default CyberpunkMoodBoard;
+    <div class="relative bg-gradient-to-b from-purple-900 via-gray-900 to-black rounded-xl p-8 mb-8 overflow-hidden border border-gray-800">
+        <div class="absolute top-0 left-1/4 w-32 h-32 bg-cyan-500 rounded-full blur-[80px] opacity-30"></div>
+        <div class="absolute top-10 right-1/4 w-24 h-24 bg-pink-500 rounded-full blur-[80px] opacity-30"></div>
+        <div class="absolute bottom-0 left-1/2 w-40 h-20 bg-purple-500 rounded-full blur-[60px] opacity-20"></div>
+        
+        <div class="flex items-end justify-center gap-1 h-64 relative z-10">
+            <div class="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-24 rounded-t"></div>
+            <div class="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-32 rounded-t"></div>
+            <div class="w-10 bg-gradient-to-t from-cyan-900 to-cyan-700 h-44 rounded-t border-t-2 border-cyan-400"></div>
+            <div class="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-36 rounded-t"></div>
+            <div class="w-12 bg-gradient-to-t from-pink-900 to-pink-700 h-56 rounded-t border-t-2 border-pink-400">
+                <div class="mt-2 mx-auto w-2 h-2 bg-pink-400 animate-pulse"></div>
+            </div>
+            <div class="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-28 rounded-t"></div>
+            <div class="w-14 bg-gradient-to-t from-purple-900 to-purple-700 h-48 rounded-t border-t-2 border-purple-400"></div>
+            <div class="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-40 rounded-t"></div>
+            <div class="w-10 bg-gradient-to-t from-cyan-900 to-cyan-700 h-52 rounded-t border-t-2 border-cyan-400">
+                <div class="mt-4 mx-auto w-1 h-8 bg-cyan-400 opacity-50"></div>
+            </div>
+            <div class="w-6 bg-gradient-to-t from-gray-800 to-gray-700 h-20 rounded-t"></div>
+            <div class="w-8 bg-gradient-to-t from-gray-800 to-gray-700 h-36 rounded-t"></div>
+        </div>
+        
+        <div class="absolute top-4 right-8 w-12 h-12 bg-gray-300 rounded-full opacity-40 shadow-[0_0_20px_rgba(255,255,255,0.2)]"></div>
+        
+        <div class="absolute bottom-4 left-4 text-[10px] text-cyan-400 font-mono opacity-70 tracking-tighter">
+            SECTOR 7-G // POPULATION: 47.2M // AIR_QUALITY: CRITICAL
+        </div>
+    </div>
+
+    <div id="districts-container" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
+        </div>
+
+    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6 mb-8">
+        <h2 class="text-xl font-bold mb-4 text-pink-400 uppercase tracking-tight">🎨 Visual Elements</h2>
+        <div id="elements-container" class="flex flex-wrap gap-2">
+            </div>
+    </div>
+
+    <div class="bg-gray-800/50 border border-gray-700 rounded-xl p-6">
+        <h2 class="text-xl font-bold mb-4 text-purple-400 uppercase tracking-tight">🎭 Color Palette</h2>
+        <div class="flex gap-4 flex-wrap">
+            <div class="group relative">
+                <div class="w-20 h-20 bg-cyan-400 rounded-lg shadow-lg shadow-cyan-500/20 flex items-end p-2 transition-transform hover:scale-105">
+                    <span class="text-[10px] text-gray-900 font-mono font-bold">#22D3EE</span>
+                </div>
+            </div>
+            <div class="group relative">
+                <div class="w-20 h-20 bg-pink-500 rounded-lg shadow-lg shadow-pink-500/20 flex items-end p-2 transition-transform hover:scale-105">
+                    <span class="text-[10px] text-white font-mono font-bold">#EC4899</span>
+                </div>
+            </div>
+            <div class="group relative">
+                <div class="w-20 h-20 bg-purple-600 rounded-lg shadow-lg shadow-purple-500/20 flex items-end p-2 transition-transform hover:scale-105">
+                    <span class="text-[10px] text-white font-mono font-bold">#9333EA</span>
+                </div>
+            </div>
+            <div class="group relative">
+                <div class="w-20 h-20 bg-orange-500 rounded-lg shadow-lg shadow-orange-500/20 flex items-end p-2 transition-transform hover:scale-105">
+                    <span class="text-[10px] text-white font-mono font-bold">#F97316</span>
+                </div>
+            </div>
+            <div class="group relative">
+                <div class="w-20 h-20 bg-gray-950 rounded-lg border border-gray-700 flex items-end p-2 transition-transform hover:scale-105">
+                    <span class="text-[10px] text-gray-400 font-mono font-bold">#030712</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-12 text-gray-600 text-xs font-mono uppercase tracking-widest pb-8">
+        Registry: Zenodo-17921911 // Production: CultureCare Studio Lab
+    </div>
+
+    <script>
+        // Data mirroring your React state
+        const districts = [
+            { name: "Corporate Spire District", color: "from-cyan-500 to-blue-600", icon: "🏢", desc: "Gleaming towers, holo-ads, executive sky bridges." },
+            { name: "Neon Market Zone", color: "from-pink-500 to-purple-600", icon: "🛒", desc: "Street vendors, black market tech, dense crowds." },
+            { name: "Industrial Sector", color: "from-orange-500 to-red-600", icon: "⚙️", desc: "Factories, smoke stacks, worker housing blocks." },
+            { name: "Undercity Slums", color: "from-green-500 to-emerald-700", icon: "🌿", desc: "Forgotten levels, bio-hackers, rebel hideouts." }
+        ];
+
+        const elements = [
+            "Holographic billboards", "Flying vehicles", "Neon kanji signs", 
+            "Cybernetic citizens", "Rain-slicked streets", "Megacorp logos",
+            "Sky trains", "Drone swarms", "Street food stalls", "Hacker dens"
+        ];
+
+        // Render Districts
+        const districtsContainer = document.getElementById('districts-container');
+        districts.forEach(d => {
+            const card = `
+                <div class="bg-gradient-to-r ${d.color} p-[1px] rounded-lg transition-all hover:brightness-110">
+                    <div class="bg-gray-900 rounded-lg p-4 h-full">
+                        <div class="flex items-center gap-3 mb-2">
+                            <span class="text-2xl">${d.icon}</span>
+                            <h3 class="font-bold text-lg tracking-tight">${d.name}</h3>
+                        </div>
+                        <p class="text-gray-400 text-sm leading-relaxed">${d.desc}</p>
+                    </div>
+                </div>
+            `;
+            districtsContainer.innerHTML += card;
+        });
+
+        // Render Visual Elements
+        const elementsContainer = document.getElementById('elements-container');
+        elements.forEach(e => {
+            const chip = `
+                <span class="px-3 py-1 bg-gray-800/80 rounded-full text-xs text-cyan-300 border border-cyan-500/30 font-mono">
+                    ${e}
+                </span>
+            `;
+            elementsContainer.innerHTML += chip;
+        });
+    </script>
+</body>
+</html>
